@@ -1,20 +1,29 @@
-﻿@model List<MissKittin.Models.Cat>
-
+﻿@using MissKittin.Models
+@model List<MissKittin.Models.Cat>
 <div class="jumbotron">
     <h1>Miss Kittin</h1>
     <p class="lead">Vote up your favourite cat</p>
 </div>
-<div class="row">
-@{
-    var step = 3;
-    for (var i = 0; i < Model.Count / 3; i++)
-    {
-        for (var j = 0; j < 3; j++)
+
+<div class="container">
+    <ul class="grid effect-2" id="grid">
+
+        @foreach (var cat in Model)
         {
-            <div class="col-md-4">
-                <img src=@Model[i * 3 + j].Url class="img-rounded" width="300" height="200"/>
-            </div>
+            <li><a href=""><img src=@cat.Url></a></li>
         }
-    }
-}
+
+    </ul>
 </div>
+
+@Scripts.Render("~/Scripts/masonry.pkgd.min.js")
+@Scripts.Render("~/Scripts/imagesloaded.js")
+@Scripts.Render("~/Scripts/classie.js")
+@Scripts.Render("~/Scripts/AnimOnScroll.js")
+<script>
+		new AnimOnScroll(document.getElementById( 'grid' ), {
+			minDuration : 0.4,
+			maxDuration : 0.7,
+			viewportFactor : 0.2
+		} );
+</script>

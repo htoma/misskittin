@@ -21,6 +21,8 @@ namespace MissKittin
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/component.css",
+                      "~/Content/default.css",
                       "~/Content/site.css"));
         }
     }
