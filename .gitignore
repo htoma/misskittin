@@ -1,0 +1,11 @@
+lib/debug
+lib/release
+Debug
+*.suo
+*.user
+obj
+bin
+.vs
+packages
+private.config
+PublishProfiles/
