@@ -26,6 +26,12 @@ namespace MissKittin.Controllers
             }
         }
 
+        [HttpPost]
+        public string UpCatLove(string id)
+        {
+            return "3";
+        }
+
         private List<Cat> GetCats()
         {
             var catJson = new WebClient().DownloadString(CatLocation);

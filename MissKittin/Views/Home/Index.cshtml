@@ -12,12 +12,13 @@
         {
             <li>
                 <a href=""><img src=@cat.Url></a>
-                <button class="btn btn-warning" type="button">
-                    <span class="badge">4</span> 
-                    <span class="glyphicon glyphicon-heart-empty" ></span>
-                </button>
+                <div id="cat-@cat.Id" data-id=@cat>
+                    <button class="btn btn-warning" type="button" onclick="LoveMeThisCat('@cat.Id')">
+                        <span class="badge">@cat.Likes</span> 
+                        <span class="glyphicon glyphicon-heart-empty"></span>
+                    </button>
+                </div>
             </li>
-
         }
 
     </ul>
@@ -28,9 +29,29 @@
 @Scripts.Render("~/Scripts/classie.js")
 @Scripts.Render("~/Scripts/AnimOnScroll.js")
 <script>
-		new AnimOnScroll(document.getElementById( 'grid' ), {
-			minDuration : 0.4,
-			maxDuration : 0.7,
-			viewportFactor : 0.2
-		} );
+    new AnimOnScroll(document.getElementById('grid'),
+        {
+            minDuration: 0.4,
+            maxDuration: 0.7,
+            viewportFactor: 0.2
+        });
+
+    function LoveMeThisCat(id) {
+        var url = '@Url.Action("UpCatLove", "Home")';
+        $.ajax({
+            type: 'POST',
+            url: url,
+            success: function(data) {
+                var div = $('#cat-' + id);
+                var btn = div.find('.btn');
+                btn.removeClass('btn-warning').addClass('btn-danger');
+                btn.prop('onclick', null).off('click');
+                div.find('.badge').text(data);
+                div.find('.glyphicon').removeClass('glyphicon-heart-empty').addClass('glyphicon-heart');                
+            },
+            error: function() {
+                //todo: fail silently or say something about cat not updated
+            }
+        });
+    }
 </script>
