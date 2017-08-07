@@ -9,6 +9,10 @@
     padding-right: 15px;
 }
 
+.title-font {
+    font-family: 'Indie Flower', cursive;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,

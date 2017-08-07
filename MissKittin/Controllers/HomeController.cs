@@ -21,7 +21,7 @@ namespace MissKittin.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Miss Kittin";
 
             try
             {

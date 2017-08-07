@@ -23,7 +23,7 @@ namespace MissKittin
                       "~/Content/bootstrap.min.css",
                       "~/Content/component.css",
                       "~/Content/default.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
         }
     }
 }
