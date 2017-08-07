@@ -10,7 +10,14 @@
 
         @foreach (var cat in Model)
         {
-            <li><a href=""><img src=@cat.Url></a></li>
+            <li>
+                <a href=""><img src=@cat.Url></a>
+                <button class="btn btn-warning" type="button">
+                    <span class="badge">4</span> 
+                    <span class="glyphicon glyphicon-heart-empty" ></span>
+                </button>
+            </li>
+
         }
 
     </ul>

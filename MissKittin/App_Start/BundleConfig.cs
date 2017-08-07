@@ -20,7 +20,7 @@ namespace MissKittin
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/component.css",
                       "~/Content/default.css",
                       "~/Content/site.css"));
