@@ -22,6 +22,13 @@ namespace MissKittin.Azure
             }
         }
 
+        public static void Insert<T>(string tableName, ITableEntity entity) where T : ITableEntity, new()
+        {
+            var table = GetTable(tableName);
+            var op = TableOperation.InsertOrReplace(entity);
+            table.Execute(op);
+        }
+
         private static CloudTable GetTable(string tableName)
         {
             var storageAccount =

@@ -8,14 +8,16 @@ namespace MissKittin.Azure
         {
         }
 
-        public CatEntity(string id, int likes)
+        public CatEntity(string id, string url, int likes)
         {
             RowKey = id;
+            Url = url;
             Likes = likes;
             PartitionKey = "cat";
         }
 
         public string Id => RowKey;
-        public int Likes { get; set; }
+        public string Url { get; set; }
+        public int Likes { get; set; }        
     }
 }

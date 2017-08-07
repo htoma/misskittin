@@ -37,7 +37,7 @@
         });
 
     function LoveMeThisCat(id) {
-        var url = '@Url.Action("UpCatLove", "Home")';
+        var url = '/home/UpCatLove?id=' + id;
         $.ajax({
             type: 'POST',
             url: url,
